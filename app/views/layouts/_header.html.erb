@@ -1,51 +1,54 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #800000;">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ff9966;">
 
 
     <% if user_signed_in? %>
 
-          <!--カスタマーがログインしている時 -->
-
+          <!--ユーザーがログインしている時 -->
 
       <ul class="navbar-nav ml-auto">
         <li>
-          <%= link_to "#", class: "nav-link text-light" do %>
-            <i class="fas fa-home"></i>My Page
+          <%= link_to "#", class: "nav-link text-dark" do %>
+            <i class="fas fa-pencil-alt"></i>新規投稿
           <% end %>
         </li>
         <li>
-          <%= link_to users_path, class: "nav-link text-light" do %>
-            <i class="fas fa-birthday-cake"></i>Users
+          <%= link_to "#", class: "nav-link text-dark" do %>
+            <i class="fas fa-heart"></i>お気に入り
           <% end %>
         </li>
         <li>
-          <%= link_to posts_path, class: "nav-link text-light" do %>
-            <i class="fas fa-shopping-cart"></i>Posts
+          <%= link_to users_path, class: "nav-link text-dark" do %>
+            <i class="fas fa-users"></i>ユーザー一覧
           <% end %>
         </li>
         <li>
-          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light" do %>
-            <i class="fas fa-sign-out-alt"></i>Log Out
+          <%= link_to posts_path, class: "nav-link text-dark" do %>
+            <i class="fas fa-file-alt"></i>投稿一覧
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-dark" do %>
+            <i class="fas fa-sign-out-alt"></i>ログアウト
           <% end %>
         </li>
       </ul>
-
     <% elsif admin_signed_in? %>
       <ul class="navbar-nav ml-auto">
           <!-- 管理者がログインしている時 -->
         <li>
-          <%= link_to admin_users_path, class: "nav-link text-light" do %>
-            <i class="fas fa-birthday-cake"></i>Users
+          <%= link_to admin_users_path, class: "nav-link text-dark" do %>
+            <i class="fas fa-users"></i>ユーザー一覧
           <% end %>
         </li>
         <li>
-          <%= link_to admin_posts_path, class: "nav-link text-light" do %>
-            <i class="fas fa-users"></i>Posts
+          <%= link_to admin_posts_path, class: "nav-link text-dark" do %>
+            <i class="fas fa-file-alt"></i>投稿一覧
           <% end %>
         </li>
         <li>
-          <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link text-light" do %>
-            <i class="fas fa-sign-out-alt"></i>Log Out
+          <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link text-dark" do %>
+            <i class="fas fa-sign-out-alt"></i>ログアウト
           <% end %>
         </li>
       </ul>
@@ -54,23 +57,23 @@
           <!-- ログインしていない時 -->
       <ul class="navbar-nav ml-auto">
         <li>
-          <%= link_to "#", class: "nav-link text-light" do %>
-            <i class="fas fa-store-alt"></i>About
+          <%= link_to about_path, class: "nav-link text-dark" do %>
+            <i class="fas fa-smoking"></i>サイト概要
           <% end %>
         </li>
         <li>
-          <%= link_to posts_path, class: "nav-link text-light" do %>
-            <i class="fas fa-birthday-cake"></i>Posts
+          <%= link_to posts_path, class: "nav-link text-dark" do %>
+            <i class="fas fa-file-alt"></i>投稿一覧
           <% end %>
         </li>
         <li>
-          <%= link_to new_user_registration_path, class: "nav-link text-light" do %>
-            <i class="fas fa-user-plus"></i>Sign Up
+          <%= link_to new_user_registration_path, class: "nav-link text-dark" do %>
+            <i class="fas fa-user-plus"></i>新規登録
           <% end %>
         </li>
         <li>
-          <%= link_to new_user_session_path, class: "nav-link text-light" do %>
-            <i class="fas fa-user"></i>Log In
+          <%= link_to new_user_session_path, class: "nav-link text-dark" do %>
+            <i class="fas fa-user"></i>ログイン
           <% end %>
         </li>
       </ul>
