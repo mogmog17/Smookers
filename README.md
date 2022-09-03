@@ -1,4 +1,4 @@
-# Smookers
+# タバコミュニティ
 
 ## サイト概要
 ### サイトテーマ
@@ -10,23 +10,23 @@
 スポットを閲覧して手軽にブックマークできる機能があれば、タバコのポイ捨てや受動喫煙の問題を少しでも減らせると思ったから。
 
 ### ターゲットユーザ
-・喫煙者
+・タバコが好きな人
+・日常的に外出先で喫煙所を利用する人
+・喫煙ができ、且つおしゃれなカフェや喫茶店を利用したい人
 
 ### 主な利用シーン
-・喫煙スポットが近くにあるか探したい時
-・よく利用する喫煙所やカフェの情報を確認したい時
+・喫煙スポットが近くにあるか探したいとき
+・よく利用する喫煙所やカフェの情報を確認したいとき
+・他のユーザーが利用しているおすすめ喫煙スポットをしりたいとき
 
 ## 設計書
-・ER図
-https://drive.google.com/file/d/1k1EM0TBKIcuP1ikob6CNDbhwE5FjFmD1/view?usp=sharing
-・テーブル定義書
-https://docs.google.com/spreadsheets/d/1w4YuDTSJZVkEYrnoNBlOekoOsSAy10ujzj1yBDuHvhQ/edit?usp=sharing
-・詳細設計
-https://docs.google.com/spreadsheets/d/1w4YuDTSJZVkEYrnoNBlOekoOsSAy10ujzj1yBDuHvhQ/edit?usp=sharing
+ER図
+テーブル定義書
+詳細設計
 
 ## 開発環境
 - OS：Linux(CentOS)
-- 言語：HTML,JavaScript,Ruby,SQL
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails,Bootstrap
 - JSライブラリ：jQuery
 - IDE：Cloud9
