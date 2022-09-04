@@ -1,5 +1,19 @@
 <div class="container">
   <div class="row">
     <h1 class="mt-4">投稿詳細</h1>
+    <%= link_to @post.user do %>
+      <%= image_tag @post.user.get_profile_image(200, 200), class: "rounded-circle" %>
+    <% end %>
+    <%= @post.user.username %>
+    <%= @post.title %>
+    <%= @post.body %>
+    <%= image_tag @post.get_spot_image(500, 500) %>
+  </div>
+
+  <div class="row">
+    <% if @post.user == current_user %>
+      <%= link_to "編集", edit_post_path(@post), class: "btn btn-outline-success" %>
+      <%= link_to "削除", @post, method: :delete, data: { confirm: "投稿を削除してよろしいですか？" }, class: "btn btn-outline-danger" %>
+    <% end %>
   </div>
 </div>
