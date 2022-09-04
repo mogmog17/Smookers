@@ -1,7 +1,15 @@
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :favorites, dependent: :destroy
 
   has_one_attached :spot_image
+
+  validates :title, presence: true
+  validates :body, presence: true, length: { maximum: 250 }
+
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
+  end
 
   def get_spot_image(width, height)
     unless spot_image.attached?

@@ -13,9 +13,20 @@
       <% @posts.each do |f| %>
       <tbody>
         <tr>
-          <td><%= image_tag f.get_spot_image(100, 100) %></td>
+          <td><%= image_tag f.get_spot_image(100, 100), class: "rounded-circle" %></td>
           <td><%= f.title %></td>
           <td><%= f.body %></td>
+          <td>
+            <% if f.favorited_by?(current_user) %>
+              <%= link_to post_favorites_path(@post), method: :delete do %>
+                <p style="color: red;">♥<%= f.favorites.count %></p>
+              <% end %>
+            <% else %>
+              <%= link_to post_favorites_path(@post), method: :post do %>
+                <p>♡<%= f.favorites.count %></p>
+              <% end %>
+            <% end %>
+          </td>
           <td colspan="3"></td>
         </tr>
       </tbody>

@@ -13,7 +13,7 @@
       <% @users.each do |user| %>
       <tbody>
         <tr>
-          <td><%= image_tag @user.get_profile_image(50, 50) %></td>
+          <td><%= image_tag user.get_profile_image(100, 100), class: "rounded-circle" %></td>
           <td><%= user.username %></td>
           <td><%= user.introduction %></td>
           <td colspan="3"></td>

@@ -5,16 +5,13 @@ class Public::PostsController < ApplicationController
     @user = current_user
   end
 
-  def new
-    @post = Post.new
-    @user = current_user
-  end
-
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save
-    redirect_to posts_path
+    if @post.save
+      redirect_to post_path(@post.id)
+    else
+    end
   end
 
   def show
@@ -23,6 +20,11 @@ class Public::PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    if @post.user == current_user
+      render :edit
+    else
+      posts_path
+    end
   end
 
   def update
