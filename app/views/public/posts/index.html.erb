@@ -13,8 +13,9 @@
       <% @posts.each do |f| %>
       <tbody>
         <tr>
-          <td></td>
-          <td></td>
+          <td><%= image_tag f.get_spot_image(100, 100) %></td>
+          <td><%= f.title %></td>
+          <td><%= f.body %></td>
           <td colspan="3"></td>
         </tr>
       </tbody>

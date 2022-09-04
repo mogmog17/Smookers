@@ -1,0 +1,58 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <h3 class="mt-4">プロフィール</h3>
+      <%= image_tag @user.get_profile_image(100, 100) %>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>ユーザーネーム</th>
+            <th><%= @user.username %></th>
+          </tr>
+          <tr>
+            <th>自己紹介</th>
+            <th><%= @user.introduction %></th>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row">
+　　　  <%= link_to "編集する", edit_user_path(current_user), class: "btn btn-outline-success btn-block" %>
+      </div>
+
+      <h3 class="mt-4">新規投稿</h3>
+      <%= form_with model: @post do |f| %>
+        <%= f.label :"タイトル" %><br>
+        <%= f.text_field :title, class: "form-control py-5" %><br>
+        <%= f.label :"本文" %><br>
+        <%= f.text_area :body, class: "form-control"%><br>
+        <%= f.file_field :spot_image %><br>
+        <div class="">
+          <%= f.submit "投稿する", class: "mt-5 btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-md-8 offset-md-1">
+      <h3 class="mt-4">投稿履歴</h3>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th>画像</th>
+            <th>タイトル</th>
+            <th>本文</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.posts.each do |f| %>
+          <tr>
+            <td><%= image_tag f.get_spot_image(100, 100) %></td>
+            <td><%= f.title %></td>
+            <td><%= f.body %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
