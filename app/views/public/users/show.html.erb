@@ -15,11 +15,19 @@
           </tr>
           <tr>
             <th>フォロー数</th>
-            <th><%= @user.followings.count %></th>
+            <th>
+              <%= link_to user_followings_path(@user.id) do %>
+                <%= @user.followings.count %>
+              <% end %>
+            </th>
           </tr>
           <tr>
             <th>フォロワー数</th>
-            <th><%= @user.followers.count %></th>
+            <th>
+              <%= link_to user_followers_path(@user.id) do %>
+                <%= @user.followers.count %>
+              <% end %>
+            </th>
           </tr>
         </tbody>
       </table>
