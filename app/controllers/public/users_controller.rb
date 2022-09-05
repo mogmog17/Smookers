@@ -10,6 +10,7 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @post = Post.new
+    @user = current_user
   end
 
   def edit

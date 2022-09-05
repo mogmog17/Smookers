@@ -10,7 +10,11 @@
           <% @users.each do |user| %>
             <tr>
               <td><%= image_tag user.get_profile_image(100, 100), class: "rounded-circle" %></td>
-              <td><%= user.username %></td>
+              <td>
+                <%= link_to(user) do %>
+                  <%= user.username %>
+                <% end %>
+              </td>
               <td><%= user.introduction %></td>
             </tr>
           <% end %>
