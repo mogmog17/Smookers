@@ -17,9 +17,9 @@
       </table>
 
       <% if @user.username != "guestuser" %>
-      <div class="row">
-　　　  <%= link_to "編集する", edit_user_path(current_user), class: "btn btn-outline-success btn-block" %>
-      </div>
+        <div class="row">
+　　　    <%= link_to "プロフィール編集", edit_user_path(current_user), class: "btn btn-outline-success btn-block" %>
+        </div>
       <% end %>
 
       <h3 class="mt-4">新規投稿</h3>

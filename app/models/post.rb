@@ -4,7 +4,7 @@ class Post < ApplicationRecord
 
   has_one_attached :spot_image
 
-  validates :title, presence: true
+  validates :title, presence: true, length: { maximum: 50 }
   validates :body, presence: true, length: { maximum: 250 }
 
   def favorited_by?(user)
@@ -17,5 +17,19 @@ class Post < ApplicationRecord
       spot_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
     spot_image.variant(resize_to_limit: [width, height]).processed
+  end
+
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @post = Post.where("title LIKE?","#{word}")
+    elsif search == "forward_match"
+      @post = Post.where("title LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @post = Post.where("title LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @post = Post.where("title LIKE?","%#{word}%")
+    else
+      @post = Post.all
+    end
   end
 end

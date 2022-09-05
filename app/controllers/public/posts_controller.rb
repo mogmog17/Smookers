@@ -1,4 +1,6 @@
 class Public::PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :ensure_correct_user, only: [:edit, :update]
 
   def index
     @posts = Post.all
@@ -43,5 +45,12 @@ class Public::PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body, :spot_image)
+  end
+
+  def ensure_correct_user
+    @post = Post.find(params[:id])
+    unless @post.user == current_user
+      redirect_to posts_path
+    end
   end
 end

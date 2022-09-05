@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   }
 
   devise_for :admins, skip: [:registrations, :passwords], controllers: {
-    sessions: "admin/sessions"
+    sessions: 'admin/sessions'
   }
 
   devise_scope :user do
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get '/about' => 'homes#about', as: 'about'
+    get 'searches/search'
     resources :users, only: [:index, :show, :edit, :update]
     resources :posts, only: [:create, :index, :show, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]

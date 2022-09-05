@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <h1 class="mt-4">"<%= @word %>"の検索結果</h1>
+    <table class="table table-hover table-inverse">
+
+    <!--検索対象モデルがUserの時 -->
+
+      <% if @range == "User" %>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= image_tag user.get_profile_image(100, 100), class: "rounded-circle" %></td>
+              <td><%= user.username %></td>
+              <td><%= user.introduction %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      <% else %>
+
+        <!--検索対象モデルがUserではない時(= 検索対象モデルがPostの時) -->
+
+        <tbody>
+          <% @posts.each do |f| %>
+            <tr>
+              <td><%= f.title %></td>
+              <td><%= f.body %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>
