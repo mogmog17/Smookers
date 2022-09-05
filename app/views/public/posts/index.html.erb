@@ -21,7 +21,11 @@
           </td>
           <td><%= link_to f.title, f %></td>
           <td><%= f.body %></td>
-          <td class="favorite-btn-<%= f.id %>"><%= render "public/favorites/favorite-btn", post_data: f %></td>
+          <% if user_signed_in? %>
+            <td class="favorite-btn-<%= f.id %>"><%= render "public/favorites/favorite-btn", post_data: f %></td>
+          <% else %>
+            <td><p>♡<%= f.favorites.count %></p></td>
+          <% end %>
           <td colspan="3"></td>
         </tr>
       </tbody>

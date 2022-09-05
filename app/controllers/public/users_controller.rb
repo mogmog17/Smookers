@@ -9,8 +9,6 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @post = Post.new
-    @user = current_user
   end
 
   def edit
@@ -28,6 +26,12 @@ class Public::UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def favorites
+    @user = User.find(params[:user_id])
+    favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
+    @favorite_posts = Post.find(favorites)
   end
 
   private

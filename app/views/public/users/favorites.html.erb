@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <h1 class="mt-4">ブックマーク</h1>
+    <table class="table table-hover table-inverse">
+      <tbody>
+        <% @favorite_posts.each do |f|%>
+          <tr>
+            <td><%= image_tag f.get_spot_image(100, 100), class: "rounded-circle" %></td>
+            <td><%= f.title %></td>
+            <td><%= f.body %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

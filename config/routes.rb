@@ -22,11 +22,12 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about', as: 'about'
     get 'searches/search'
     resources :users, only: [:index, :show, :edit, :update] do
+      get 'favorites' => 'users#favorites'
       resource :relationships, only: [:create, :destroy]
         get 'followings' => 'relationships#followings', as: 'followings'
         get 'followers' => 'relationships#followers', as: 'followers'
     end
-    resources :posts, only: [:create, :index, :show, :edit, :update, :destroy] do
+    resources :posts do
       resource :favorites, only: [:create, :destroy]
     end
   end
