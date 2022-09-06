@@ -22,7 +22,7 @@
           </td>
           <td><%= link_to f.title, f %></td>
           <td><%= f.body %></td>
-          <td><%= link_to "#{f.post_comments.count} コメント", post_path(f.id) %></td>
+          <td class="comments-count"><%= render "public/post_comments/counter", post_data: f %></td>
             <% if user_signed_in? %>
               <td class="favorite-btn-<%= f.id %>"><%= render "public/favorites/favorite-btn", post_data: f %></td>
             <% else %>

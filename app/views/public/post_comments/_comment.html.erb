@@ -1,0 +1,19 @@
+<table>
+  <h4>コメント一覧</h4>
+  <tbody>
+    <% post_data.post_comments.each do |post_comment| %>
+      <tr>
+        <td><%= image_tag post_comment.user.get_profile_image(100,100) %></td>
+        <td><%= post_comment.user.username %></td>
+        <td><%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %></td>
+        <td>
+          <% if post_comment.user == current_user %>
+            <%= link_to post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true, class: "btn btn-outline-danger rounded-pill" do %>
+              削除
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
