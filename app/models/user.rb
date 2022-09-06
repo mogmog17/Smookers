@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
 
   # フォローをした、されたの関係
 
@@ -20,8 +21,8 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
 
-  validates :username, uniqueness: true, length: { minimum: 2, maximum: 15 }
-  validates :introduction, length: { maximum: 100 }
+  validates :username, uniqueness: true, length: {minimum: 2, maximum: 15}
+  validates :introduction, length: {maximum: 100}
 
   # 検索方法分岐
 
