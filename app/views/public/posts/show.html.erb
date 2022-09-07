@@ -18,12 +18,12 @@
           <div id="star-rate<%= @post.id%>">
             <script>
               $('#star-rate<%= @post.id %>').empty();
-              $('star-rate<%= @post.id %>').raty({
+              $('#star-rate<%= @post.id %>').raty({
                 size: 36,
                 starOff: '<%= asset_path('star-off.png') %>',
                 starOn: '<%= asset_path('star-on.png') %>',
                 readOnly: true,
-                score: <%= @post.id %>
+                score: <%= @post.star %>
               });
             </script>
           </div>

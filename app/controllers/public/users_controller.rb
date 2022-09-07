@@ -36,7 +36,7 @@ class Public::UsersController < ApplicationController
 
   def release
     @user = User.find(params[:user_id])
-    @user.released! unless @user.nonreleased?
+    @user.released! unless @user.released?
     redirect_to edit_user_path(current_user)
   end
 

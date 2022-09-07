@@ -19,6 +19,7 @@
         <%= f.label :"レビュー", class: "col-md-3 col-form-label" %>
         <%= f.hidden_field :star, id: :review_star %>
       </div>
+      
       <script>
         $('#star').empty();
         $('#star').raty({
@@ -29,7 +30,7 @@
         });
       </script>
       <%= f.label :"紹介" %><br>
-      <%= f.text_area :body, class: "form-control py-5"%><br>
+      <%= f.text_area :body, class: "form-control py-5" %><br>
       <%= f.label :"画像" %><br>
       <%= f.file_field :spot_image %><br>
       <div class="row mt-2 mb-4">
