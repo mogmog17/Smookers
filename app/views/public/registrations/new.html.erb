@@ -1,34 +1,42 @@
-<h2>新規登録</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+    <h1 class="mt-4 mb-4">新規登録</h1>
 
+<div class="col-md-12">
 <%= form_with model: @user, url: user_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :"ユーザーネーム" %><br>
-    <%= f.text_field :username %>
+  <div class="row mb-4">
+    <%= f.label :"ユーザーネーム", class: "col-4" %><br>
+    <%= f.text_field :username, class: "col-8" %>
   </div>
 
-  <div class="field">
-    <%= f.label :"メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="row mb-4">
+    <%= f.label :"メールアドレス", class: "col-4" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-8" %>
   </div>
 
-  <div class="field">
-    <%= f.label :"パスワード" %>
+  <div class="row mb-4">
+    <%= f.label :"パスワード", class: "col-4" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %>文字以上)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "col-8" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
+  <div class="row">
+    <%= f.label :"パスワードの確認", class: "col-4" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="row mt-4 mb-4">
+    <%= f.submit "新規登録", class: "btn btn-outline-success btn-block" %>
   </div>
 <% end %>
 
 <%= render "public/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
