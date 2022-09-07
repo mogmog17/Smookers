@@ -24,6 +24,8 @@ class User < ApplicationRecord
   validates :username, uniqueness: true, length: {minimum: 2, maximum: 15}
   validates :introduction, length: {maximum: 100}
 
+  enum status: {nonreleased: 0, released: 1}
+
   # 検索方法分岐
 
   def self.looks(search, word)

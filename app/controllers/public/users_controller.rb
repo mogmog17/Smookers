@@ -34,6 +34,18 @@ class Public::UsersController < ApplicationController
     @favorite_posts = Post.find(favorites)
   end
 
+  def release
+    @user = User.find(params[:user_id])
+    @user.released! unless @user.nonreleased?
+    redirect_to edit_user_path(current_user)
+  end
+
+  def nonrelease
+    @user = User.find(params[:user_id])
+    @user.nonreleased! unless @user.nonreleased?
+    redirect_to edit_user_path(current_user)
+  end
+
   private
 
   def user_params

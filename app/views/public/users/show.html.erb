@@ -38,10 +38,6 @@
         <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-outline-primary rounded-pill" %>
       <% end %>
 
-
-        <%= link_to "非公開にする", "#", class: "btn btn-outline-primary rounded-pill" %>
-        <%= link_to "公開する", "#", class: "btn btn-outline-danger rounded-pill" %>
-
       <% if @user.username != "guestuser" %>
         <div class="row">
           <div class="mt-3">
