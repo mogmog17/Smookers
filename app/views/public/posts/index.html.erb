@@ -7,6 +7,7 @@
           <th>画像</th>
           <th>喫煙スポット</th>
           <th>紹介</th>
+          <th>レビュー</th>
           <th>コメント</th>
           <th>いいね</th>
           <th colspan="3"></th>
@@ -22,6 +23,20 @@
           </td>
           <td><%= link_to f.title, f %></td>
           <td><%= f.body %></td>
+          <td>
+            <div id="star-rate<%= f.id %>">
+              <script>
+                $('#star-rate<%= f.id %>').empty();
+                $('star-rate<%= f.id %>').raty({
+                  size: 36,
+                  starOff: '<%= asset_path('star-off.png') %>',
+                  starOn: '<%= asset_path('star-on.png') %>',
+                  readOnly :true,
+                  score: <%= f.star %>
+                });
+              </script>
+            </div>
+          </td>
           <td class="comments-count"><%= render "public/post_comments/counter", post_data: f %>件</td>
             <% if user_signed_in? %>
               <td class="favorite-btn-<%= f.id %>"><%= render "public/favorites/favorite-btn", post_data: f %></td>
