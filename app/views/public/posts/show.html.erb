@@ -1,55 +1,62 @@
 <div class="container">
   <div class="row">
-    <h1 class="mt-4">投稿詳細</h1>
-    <table class="table table-borderless">
-      <tr>
-        <td>
-          <%= link_to @post.user do %>
-            <%= image_tag @post.user.get_profile_image(100, 100), class: "rounded-circle" %>
-          <% end %>
-          <h4><%= @post.user.username %></h4>
-        </td>
-      </tr>
-      <tr>
-        <td><%= @post.title %></td>
-      </tr>
-      <tr>
-        <td>
-          <div id="star-rate<%= @post.id%>">
-            <script>
-              $('#star-rate<%= @post.id %>').empty();
-              $('#star-rate<%= @post.id %>').raty({
-                size: 36,
-                starOff: '<%= asset_path('star-off.png') %>',
-                starOn: '<%= asset_path('star-on.png') %>',
-                readOnly: true,
-                score: <%= @post.star %>
-              });
-            </script>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td><%= @post.body %></td>
-      </tr>
-    </table>
-  </div>
-  <%= image_tag @post.get_spot_image(500, 500) %>
+    <div class="col-md-6">
+    <h1 class="mt-4 mb-4">投稿詳細</h1>
+      <table class="table table-borderless">
+        <tr>
+          <td>
+            <%= link_to @post.user do %>
+              <%= image_tag @post.user.get_profile_image(100, 100), class: "rounded-circle" %>
+            <% end %>
+            <h4><%= @post.user.username %></h4>
+          </td>
+        </tr>
+        <tr>
+          <td><h4><%= @post.title %></h4></td>
+        </tr>
+        <tr>
+          <td>
+            <div id="star-rate<%= @post.id%>">
+              <script>
+                $('#star-rate<%= @post.id %>').empty();
+                $('#star-rate<%= @post.id %>').raty({
+                  size: 36,
+                  starOff: '<%= asset_path('star-off.png') %>',
+                  starOn: '<%= asset_path('star-on.png') %>',
+                  half: false,
+                  readOnly: true,
+                  score: <%= @post.star %>
+                });
+              </script>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><%= @post.body %></td>
+        </tr>
+      </table>
+      <%= image_tag @post.get_spot_image(500, 500) %>
 
-  <div class="row mt-3">
-    <% if @post.user == current_user %>
-    <div class="mr-3">
-      <%= link_to "編集する", edit_post_path(@post), class: "btn btn-outline-success rounded-pill" %>
+      <div class="row mt-3">
+        <% if @post.user == current_user %>
+        <div class="mr-3">
+          <%= link_to "編集する", edit_post_path(@post), class: "btn btn-outline-success rounded-pill" %>
+        </div>
+          <%= link_to "削除する", @post, method: :delete, data: { confirm: "投稿を削除してよろしいですか？" }, class: "btn btn-outline-danger rounded-pill" %>
+        <% end %>
+      </div>
+
+      <div class="row mt-5">
+        <h3 class="mt-2">コメント投稿</h3>
+        <%= render "public/post_comments/form", post_data: @post, post_comment: @post_comment %>
+      </div>
     </div>
-      <%= link_to "削除する", @post, method: :delete, data: { confirm: "投稿を削除してよろしいですか？" }, class: "btn btn-outline-danger rounded-pill" %>
-    <% end %>
-  </div>
 
-  <div class="row mt-5">
-    <%= render "public/post_comments/form", post_data: @post, post_comment: @post_comment %>
-  </div>
-
-  <div class="post-comments">
-    <%= render "public/post_comments/comment", post_data: @post %>
+    <div class="col-md-6">
+      <div class="post-comments">
+        <h3 class="mt-5">コメント履歴</h3>
+        <%= render "public/post_comments/comment", post_data: @post %>
+      </div>
+    </div>
   </div>
 </div>

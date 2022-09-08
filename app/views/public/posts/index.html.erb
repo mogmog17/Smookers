@@ -6,7 +6,6 @@
         <tr class="table-warning">
           <th>画像</th>
           <th>喫煙スポット</th>
-          <th>紹介</th>
           <th>レビュー</th>
           <th>コメント</th>
           <th>いいね</th>
@@ -16,13 +15,8 @@
       <% @posts.each do |f| %>
       <tbody>
         <tr>
-          <td>
-            <%= link_to(f.user) do %>
-              <%= image_tag f.get_spot_image(100, 100) %>
-            <% end %>
-          </td>
+          <td><%= image_tag f.get_spot_image(100, 100) %></td>
           <td><%= link_to f.title, f %></td>
-          <td><%= f.body %></td>
           <td>
             <div id="star-rate<%= f.id %>">
               <script>
@@ -31,6 +25,7 @@
                   size: 36,
                   starOff: '<%= asset_path('star-off.png') %>',
                   starOn: '<%= asset_path('star-on.png') %>',
+                  half: false,
                   readOnly: true,
                   score: <%= f.star %>
                 });

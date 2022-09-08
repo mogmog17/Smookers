@@ -26,6 +26,21 @@ class User < ApplicationRecord
 
   enum status: {nonreleased: 0, released: 1}
 
+  def get_profile_image(width, height)
+    unless profile_image.attached?
+      file_path = Rails.root.join('app/assets/images/NoImage.jpeg')
+      profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    end
+    profile_image.variant(resize_to_limit: [width, height]).processed
+  end
+
+  def self.guest
+    find_or_create_by!(username: 'guestuser', email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.username = "guestuser"
+    end
+  end
+
   # 検索方法分岐
 
   def self.looks(search, word)
@@ -58,20 +73,5 @@ class User < ApplicationRecord
 
   def following?(user)
     followings.include?(user)
-  end
-
-  def get_profile_image(width, height)
-    unless profile_image.attached?
-      file_path = Rails.root.join('app/assets/images/NoImage.jpeg')
-      profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
-    end
-    profile_image.variant(resize_to_limit: [width, height]).processed
-  end
-
-  def self.guest
-    find_or_create_by!(username: 'guestuser' ,email: 'guest@example.com') do |user|
-      user.password = SecureRandom.urlsafe_base64
-      user.username = "guestuser"
-    end
   end
 end

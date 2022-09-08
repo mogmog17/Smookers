@@ -8,6 +8,18 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: {maximum: 50}
   validates :body, presence: true, length: {maximum: 250}
 
+  def get_spot_image(width, height)
+    unless spot_image.attached?
+      file_path = Rails.root.join('app/assets/images/NoImage.jpeg')
+      spot_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    end
+    spot_image.variant(resize_to_limit: [width, height]).processed
+  end
+
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
+  end
+
   # 検索方法分岐
 
   def self.looks(search, word)
@@ -22,17 +34,5 @@ class Post < ApplicationRecord
     else
       @post = Post.all
     end
-  end
-
-  def favorited_by?(user)
-    favorites.exists?(user_id: user.id)
-  end
-
-  def get_spot_image(width, height)
-    unless spot_image.attached?
-      file_path = Rails.root.join('app/assets/images/NoImage.jpeg')
-      spot_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
-    end
-    spot_image.variant(resize_to_limit: [width, height]).processed
   end
 end
