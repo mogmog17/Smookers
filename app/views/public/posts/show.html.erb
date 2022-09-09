@@ -1,7 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-    <h1 class="mt-4 mb-4">投稿詳細</h1>
+    <h1 class="mt-4 mb-4">
+      <i class="far fa-file-alt"></i>
+      投稿詳細
+    </h1>
       <table class="table table-borderless">
         <tr>
           <td>
@@ -37,7 +40,7 @@
       </table>
       <%= image_tag @post.get_spot_image(500, 500) %>
 
-      <div class="row mt-3">
+      <div class="row mt-4 mb-4">
         <% if @post.user == current_user %>
         <div class="mr-3">
           <%= link_to "編集する", edit_post_path(@post), class: "btn btn-outline-success rounded-pill" %>
@@ -45,18 +48,21 @@
           <%= link_to "削除する", @post, method: :delete, data: { confirm: "投稿を削除してよろしいですか？" }, class: "btn btn-outline-danger rounded-pill" %>
         <% end %>
       </div>
-
-      <div class="row mt-5">
-        <h3 class="mt-2">コメント投稿</h3>
-        <%= render "public/post_comments/form", post_data: @post, post_comment: @post_comment %>
-      </div>
     </div>
 
-    <div class="col-md-6">
-      <div class="post-comments">
-        <h3 class="mt-5">コメント履歴</h3>
+      <div class="col-md-6">
+        <div class="row mt-5">
+          <h3 class="mt-2">
+            <i class="far fa-comment"></i>
+            コメント投稿
+          </h3>
+          <%= render "public/post_comments/form", post_data: @post, post_comment: @post_comment %>
+        </div>
+        <h3 class="mt-2">
+          <i class="far fa-comment-dots"></i>
+          コメント履歴
+        </h3>
         <%= render "public/post_comments/comment", post_data: @post %>
       </div>
-    </div>
   </div>
 </div>

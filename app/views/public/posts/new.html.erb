@@ -1,7 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10">
-    <h1 class="mt-4 mb-4">新規投稿</h1>
+    <h1 class="mt-4 mb-4">
+      <i class="fas fa-pencil-alt"></i>
+      新規投稿
+    </h1>
 
     <% if @post.errors.any? %>
       <%= @post.errors.count %>件のエラーが出ています

@@ -1,15 +1,16 @@
 <div class="container">
   <div class="row">
-    <h1 class="mt-4 mb-4">ユーザー一覧</h1>
+    <h1 class="mt-4 mb-4">
+      <i class="fas fa-users"></i>
+      ユーザー一覧
+    </h1>
     <table class="table table-hover table-inverse">
       <thead>
         <tr class="table-warning">
           <th>プロフィール画像</th>
           <th>ユーザーネーム</th>
-          <th>自己紹介</th>
           <th>フォロー</th>
           <th>フォロワー</th>
-          <th colspan="3"></th>
         </tr>
       </thead>
       <% @users.each do |user| %>
@@ -17,7 +18,7 @@
         <tr>
           <td>
             <%= link_to(user) do %>
-              <%= image_tag user.get_profile_image(100, 100), class: "rounded-circle" %>
+              <%= image_tag user.get_profile_image(50, 50), class: "rounded-circle" %>
             <% end %>
           </td>
           <td>
@@ -25,10 +26,8 @@
               <h5><%= user.username %></h5>
             <% end %>
           </td>
-          <td><%= user.introduction %></td>
           <td><%= user.followings.count %></td>
           <td><%= user.followers.count %></td>
-          <td colspan="3"></td>
         </tr>
       </tbody>
       <% end %>
