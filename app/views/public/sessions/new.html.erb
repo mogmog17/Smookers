@@ -1,26 +1,35 @@
-<h2>ログイン</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <h1 class="mt-5 mb-5">
+        <i class="fas fa-user"></i>
+        ログイン
+      </h1>
 
-<%= form_with model: @user, url: user_session_path do |f| %>
-  <div class="field">
-    <%= f.label :"メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <%= form_with model: @user, url: user_session_path do |f| %>
+        <div class="mb-4">
+          <%= f.label :"メールアドレス", class: "col-3" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-6" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :"パスワード" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+        <div class="mb-4">
+          <%= f.label :"パスワード", class: "col-3" %>
+          <%= f.password_field :password, autocomplete: "current-password", class: "col-4" %>
+        </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+
+        <div class="row mt-5 mb-4">
+          <%= f.submit "ログイン", class: "btn btn-outline-success rounded-pill col-5 mx-auto" %>
+        </div>
+      <% end %>
+
+      <%= render "public/shared/links" %>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "public/shared/links" %>
+</div>

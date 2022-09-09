@@ -62,7 +62,9 @@
           <i class="far fa-comment-dots"></i>
           コメント履歴
         </h3>
-        <%= render "public/post_comments/comment", post_data: @post %>
+        <div class="post-comments">
+          <%= render "public/post_comments/comment", post_data: @post %>
+        </div>
       </div>
   </div>
 </div>
