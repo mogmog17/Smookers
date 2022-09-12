@@ -17,19 +17,14 @@
           <%= f.password_field :password, autocomplete: "current-password", class: "col-4" %>
         </div>
 
-        <% if devise_mapping.rememberable? %>
-          <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </div>
-        <% end %>
-
         <div class="row mt-5 mb-4">
           <%= f.submit "ログイン", class: "btn btn-outline-success rounded-pill col-5 mx-auto" %>
         </div>
       <% end %>
 
-      <%= render "public/shared/links" %>
+      <div>
+        <h5><%= link_to "登録がお済みでない方はこちら", new_user_registration_path %></h5>
+      </div>
     </div>
   </div>
 </div>

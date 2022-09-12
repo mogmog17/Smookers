@@ -1,2 +1,58 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-4">
+      <h3 class="mt-4 mb-4">プロフィール</h3>
+      <div class="mb-3">
+        <%= image_tag @user.get_profile_image(200, 200), class: "rounded-circle" %>
+      </div>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="col-md-5">ユーザーネーム</th>
+            <th><%= @user.username %></th>
+          </tr>
+          <tr>
+            <th>自己紹介</th>
+            <th><%= @user.introduction %></th>
+          </tr>
+          <tr>
+            <th>フォロー数</th>
+            <th>
+              <%= link_to user_followings_path(@user.id) do %>
+                <%= @user.followings.count %>
+              <% end %>
+            </th>
+          </tr>
+          <tr>
+            <th>フォロワー数</th>
+            <th>
+              <%= link_to user_followers_path(@user.id) do %>
+                <%= @user.followers.count %>
+              <% end %>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-6 offset-sm-1">
+      <h3 class="mt-4 mb-4">投稿履歴</h3>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr class="table-warning">
+            <th>画像</th>
+            <th>喫煙スポット</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.posts.each do |f| %>
+          <tr>
+            <td><%= image_tag f.get_spot_image(100, 100) %></td>
+            <td><%= link_to f.title, f %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
