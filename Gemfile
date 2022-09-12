@@ -64,6 +64,11 @@ gem 'kaminari','~> 1.2.1'
 
 gem 'jquery-rails'
 
+gem "gmaps4rails"
+gem "geocoder"
+gem "gon"
+gem "dotenv-rails"
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
