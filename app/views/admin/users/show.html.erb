@@ -17,22 +17,17 @@
           </tr>
           <tr>
             <th>フォロー数</th>
-            <th>
-              <%= link_to user_followings_path(@user.id) do %>
-                <%= @user.followings.count %>
-              <% end %>
-            </th>
+            <th><%= @user.followings.count %></th>
           </tr>
           <tr>
             <th>フォロワー数</th>
-            <th>
-              <%= link_to user_followers_path(@user.id) do %>
-                <%= @user.followers.count %>
-              <% end %>
-            </th>
+            <th><%= @user.followers.count %></th>
           </tr>
         </tbody>
       </table>
+      <div class="row mt-4 mb-4">
+        <%= link_to "ユーザーを削除する", @post, method: :delete, data: { confirm: "ユーザーを削除してよろしいですか？" }, class: "btn btn-outline-danger rounded-pill" %>
+      </div>
     </div>
 
     <div class="col-md-6 offset-sm-1">
@@ -48,7 +43,7 @@
           <% @user.posts.each do |f| %>
           <tr>
             <td><%= image_tag f.get_spot_image(100, 100) %></td>
-            <td><%= link_to f.title, f %></td>
+            <td><%= link_to f.title, admin_post_path(f) %></td>
           </tr>
           <% end %>
         </tbody>
