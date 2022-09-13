@@ -5,6 +5,10 @@
         <i class="fas fa-map-marker-alt"></i>
         地図情報
       </h1>
+      <div class="mx-auto">
+        <input id="address" type="textbox" value="地図を検索", class="rounded-pill">
+        <input type="button" value="検索" onclick="codeAddress()">
+      </div>
       <div id='map'></div>
 
       <style>
@@ -38,6 +42,7 @@
 
         geocoder.geocode( { 'address': inputAddress}, function(results, status) {
           if (status == 'OK') {
+            console.log(results)
             map.setCenter(results[0].geometry.location);
             var marker = new google.maps.Marker({
                 map: map,
