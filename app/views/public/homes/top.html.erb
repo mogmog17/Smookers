@@ -1,7 +1,9 @@
-<div class="container">
-  <div>
-    <div class="row">
-      <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary mb-3 sign_in", method: :post %>
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-12">
+      <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-outline-secondary rounded-pill mb-3 sign_in", method: :post %>
+      <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-warning rounded-pill mb-3" %>
+      <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-success rounded-pill mb-3" %>
     </div>
   </div>
 </div>
