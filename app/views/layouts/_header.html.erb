@@ -85,7 +85,13 @@
   </nav>
   <div class="row" style="background-color: #444444;">
     <div class="col mb-2 mr-2">
-      <div class="d-flex justify-content-end"><%= render "public/searches/search" %></div>
+      <div class="d-flex justify-content-end">
+        <div class="mx-auto">
+          <input id="address" type="textbox" value="地図を検索", class="rounded-pill">
+          <input type="button" value="Encode" onclick="codeAddress()">
+        </div>
+        <%= render "public/searches/search" %>
+      </div>
    </div>
   </div>
 </header>

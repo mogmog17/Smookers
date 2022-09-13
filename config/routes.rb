@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get '/about' => 'homes#about', as: 'about'
     get 'searches/search'
+    get 'spots/index'
     resources :users, only: [:index, :show, :edit, :update] do
       get 'favorites' => 'users#favorites'
       patch 'release' => 'users#release'
@@ -32,7 +33,6 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    get '/admin' => 'homes#top', as: 'top'
     resources :users, only: [:index, :show, :destroy]
     resources :posts, only: [:index, :show, :destroy]
   end
