@@ -48,7 +48,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :spot_image, :star)
+    params.require(:post).permit(:title, :body, :spot_image, :star, :address)
   end
 
   def ensure_correct_user

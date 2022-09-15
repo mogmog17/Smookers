@@ -4,11 +4,13 @@ class Post < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_one :spot, dependent: :destroy
   accepts_nested_attributes_for :spot
-
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
   has_one_attached :spot_image
 
   validates :title, presence: true, length: {maximum: 50}
   validates :body, presence: true, length: {maximum: 250}
+  validates :address, presence: true
 
   def get_spot_image(width, height)
     unless spot_image.attached?

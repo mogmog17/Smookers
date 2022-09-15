@@ -87,15 +87,15 @@
     geocoder = new google.maps.Geocoder()
 
     map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: , lng: },
+      center: {lat: <%= @post.latitude %>, lng: <%= @post.longitude %>},
       zoom: 12,
     });
 
     marker = new google.maps.Marker({
-      position: {lat: , lng: },
+      position: {lat: <%= @post.latitude %>, lng: <%= @post.longitude %>},
       map: map,
       label: '喫煙所'
     });
   }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrvGW8i1B4mgzejpmZrl_zAMrxWWusRvA&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_KEY'] %>&callback=initMap"></script>
