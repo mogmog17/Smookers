@@ -16,9 +16,9 @@
         <div class="row mt-2 mb-4">
           <div class="mr-3">
             <% if @user.released? %>
-              <%= link_to '非公開にする', user_nonrelease_path(@user), method: :patch, class: "btn btn-outline-primary rounded-pill" %>
+              <%= link_to '非公開にする', user_nonrelease_path(@user), method: :patch, class: "btn btn-outline-danger rounded-pill" %>
             <% else %>
-              <%= link_to '公開する', user_release_path(@user), method: :patch, class: "btn btn-outline-danger rounded-pill" %>
+              <%= link_to '公開する', user_release_path(@user), method: :patch, class: "btn btn-outline-primary rounded-pill" %>
             <% end %>
           </div>
           <%= f.submit "更新する", class: "btn btn-outline-success rounded-pill" %>

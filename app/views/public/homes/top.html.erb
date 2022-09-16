@@ -1,7 +1,7 @@
 <div class="card">
   <img src="assets/top.png">
   <div class="d-flex justify-content-center align-items-center card-img-overlay">
-    <div class="btn-wrapper col-4 mx-auto">
+    <div class="btn-wrapper col-4 mx-auto mb-5">
       <div class="row">
         <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-secondary btn-block rounded-pill mb-3 sign_in", method: :post %>
       </div>
@@ -15,21 +15,51 @@
   </div>
   <div class="container">
     <div class="row mt-5 mb-5">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-3">喫煙スポットを見つけよう</h1>
+        <p>
+          「喫煙所がなかなか見つからない...」、「喫煙できて、且つおしゃれなカフェで休憩したい！」など、<br>
+          喫煙スポットが減ってる今、いち早く探したり、お気に入りの喫煙スポットを共有する場所があれば良いと思い、<br>
+          このサイトを立ち上げました。
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row mt-5 mb-5">
       <div class="col-lg-4 text-center">
         <img src="assets/head1.png", class="rounded-circle img-thumbnail">
-        <h2 class="mt-3">Search</h2>
-        <p>投稿検索で、気になっているトピックに関する投稿をチェックできます。</p>
+        <h2 class="mt-3">SEARCH</h2>
+        <p>
+          地図検索から近くの喫煙スポットを<br>
+          すぐに探すことができます。また、<br>
+          投稿検索から気になるトピックに関する<br>
+          投稿もチェックできます。
+        </p>
       </div>
       <div class="col-lg-4 text-center">
         <img src="assets/head2.png", class="rounded-circle img-thumbnail">
-        <h2 class="mt-3">Like</h2>
-        <p>投稿からお気に入りの喫煙スポットを見つけたら、いいね！を押すことでいつでも投稿をマイページから確認することができます。</p>
+        <h2 class="mt-3">LIKE</h2>
+        <p>
+          お気に入りの喫煙スポットの投稿を<br>
+          見つけたら、いいね！を押すことで<br>
+          いつでもマイページのいいね一覧から<br>
+          確認することができます。
+        </p>
       </div>
       <div class="col-lg-4 text-center">
         <img src="assets/head3.png", class="rounded-circle img-thumbnail">
-        <h2 class="mt-3">Follow</h2>
-        <p>ユーザーをフォローすることも可能です。</p>
+        <h2 class="mt-3">FOLLOW</h2>
+        <p>
+          よく閲覧するユーザーをフォローする<br>
+          ことも可能です。
+        </p>
       </div>
     </div>
   </div>
 </div>
+<span id="back">
+  <a href="">
+    <%= image_tag asset_path('arrow.png'), data: {"turbolinks"=>false}, class: "arrow" %>
+  </a>
+</span>

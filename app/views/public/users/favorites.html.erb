@@ -1,3 +1,4 @@
+<% if @favorite_posts.blank? %>
 <div class="container">
   <div class="row">
     <h1 class="mt-4 mb-4">
@@ -36,3 +37,12 @@
     </table>
   </div>
 </div>
+<% else %>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center mt-5">いいねされた投稿はありません</h2>
+    </div>
+  </div>
+</div>
+<% end %>
