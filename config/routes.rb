@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'searches/search'
-    get 'spots/index'
+    resources :spots, only: [:index]
     resources :users, only: [:index, :show, :edit, :update] do
       get 'favorites' => 'users#favorites'
       patch 'release' => 'users#release'
