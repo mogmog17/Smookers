@@ -36,7 +36,7 @@
   </div>
 </div>
 <span id="back">
-  <a href="">
-    <%= image_tag asset_path('arrow.png'), data: {"turbolinks"=>false}, class: "arrow" %>
-  </a>
+  <%= link_to '#' do %>
+    <%= image_tag asset_path('arrow.png'), class: "arrow" %>
+  <% end %>
 </span>
