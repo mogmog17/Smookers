@@ -40,6 +40,7 @@
       </table>
       <%= image_tag @post.get_spot_image(500, 500) %>
 
+      <!--地図を表示-->
       <div class="mt-3">
         <div id='map'></div>
       </div>
@@ -91,10 +92,27 @@
       zoom: 12,
     });
 
+    // 各地点のマーカー
     marker = new google.maps.Marker({
       position: {lat: <%= @post.latitude %>, lng: <%= @post.longitude %>},
       map: map,
-      label: '喫煙所'
+    });
+
+    // 各地点の吹き出し
+    infoWindow = new google.maps.InfoWindow({
+
+      // 吹き出しの内容
+      content: markerData['address']
+    });
+
+    // マーカーにクリックイベントを追加
+    markerEvent;
+  }
+
+  // マーカーをクリックしたら吹き出しを表示
+  function markerEvent {
+    marker.addListener('click', function() {
+      infoWindow.open(map, marker);
     });
   }
 </script>
