@@ -5,17 +5,8 @@
         <i class="fas fa-pencil-alt"></i>
         新規投稿
       </h1>
-
-      <% if @post.errors.any? %>
-        <%= @post.errors.count %>件のエラーが出ています
-          <ul>
-            <% @post.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-      <% end %>
-
       <%= form_with model: @post do |f| %>
+        <%= render 'layouts/errors', obj: @post %>
         <%= f.label :"喫煙スポット" %><br>
         <%= f.text_field :title, class: "form-control" %><br>
         <div class="form-group row" id="star">
