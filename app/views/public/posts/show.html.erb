@@ -102,15 +102,15 @@
     infoWindow = new google.maps.InfoWindow({
 
       // 吹き出しの内容
-      content: markerData['address']
+      content: '<%= @post.address %>'
     });
 
     // マーカーにクリックイベントを追加
-    markerEvent;
+    markerEvent();
   }
 
   // マーカーをクリックしたら吹き出しを表示
-  function markerEvent {
+  function markerEvent() {
     marker.addListener('click', function() {
       infoWindow.open(map, marker);
     });
