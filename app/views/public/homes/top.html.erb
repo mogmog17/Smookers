@@ -1,30 +1,28 @@
-<div class="card">
-  <div id="container">
-  </div>
-  <div class="d-flex justify-content-center align-items-end card-img-overlay">
-    <div class="btn-wrapper col-4 mx-auto">
-      <div class="row">
-        <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-secondary btn-block rounded-pill mb-3 sign_in", method: :post %>
-      </div>
-      <div class="row">
-        <%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary btn-block rounded-pill mb-3" %>
-      </div>
-      <div class="row">
-        <%= link_to "ログイン", new_user_session_path, class: "btn btn-warning btn-block rounded-pill mb-3" %>
-      </div>
+<div class="row">
+  <div class="image-skippr col-12">
+    <div id="theTarget">
+      <div class="image1"></div>
+      <div class="image2"></div>
+      <div class="image3"></div>
     </div>
   </div>
 </div>
-<div class="container">
-
-    <div class="image-skippr">
-      <div id="theTarget">
-        <div class="image1"></div>
-        <div class="image2"></div>
-        <div class="image3"></div>
+  <div class="row">
+    <div class="d-flex justify-content-center align-items-end col-12 mt-5">
+      <div class="btn-wrapper col-4 mx-auto">
+        <div class="row">
+          <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-secondary btn-block rounded-pill mb-3 sign_in", method: :post %>
+        </div>
+        <div class="row">
+          <%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary btn-block rounded-pill mb-3" %>
+        </div>
+        <div class="row">
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-warning btn-block rounded-pill mb-3" %>
+        </div>
       </div>
     </div>
-  <div class="row mt-5 mb-5">
+  </div>
+  <div class="row mt-5 mb-2">
     <div class="col-lg-12 text-center">
       <h1 class="mt-3">喫煙スポットを見つけよう</h1>
       <p>
@@ -34,8 +32,6 @@
       </p>
     </div>
   </div>
-</div>
-<div class="container">
   <div class="row mt-5 mb-5">
     <div class="col-lg-4 text-center">
       <img src="assets/head1.png", class="rounded-circle img-thumbnail">
@@ -66,7 +62,6 @@
       </p>
     </div>
   </div>
-</div>
 <span id="back">
   <%= link_to '#' do %>
     <%= image_tag asset_path('arrow.png'), class: "arrow" %>

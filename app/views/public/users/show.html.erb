@@ -2,7 +2,16 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-4">
-      <h3 class="mt-4 mb-4">プロフィール</h3>
+      <div class="row">
+        <h3 class="mt-4 mb-4 mr-5 pr-3">プロフィール</h3>
+        <% if @user.username != "guestuser" %>
+          <div class="mt-4 mb-4">
+            <%= link_to edit_user_path(@user) do %>
+              <h2><i class="fas fa-user-cog"></i></h2>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
       <div class="mb-3">
         <%= image_tag @user.get_profile_image(200, 200), class: "rounded-circle" %>
       </div>
@@ -35,7 +44,7 @@
         </tbody>
       </table>
 
-      <div class="row">
+      <div class="row mb-3">
         <% if current_user.following?(@user) %>
           <%= link_to user_relationships_path(@user.id), method: :delete, class: "btn btn-outline-danger rounded-pill" do %>
             <i class="fas fa-user-alt-slash"></i>フォロー外す
@@ -51,14 +60,6 @@
           <% end %>
         </div>
       </div>
-
-      <% if @user.username != "guestuser" %>
-        <div class="mt-3 mb-4">
-          <%= link_to edit_user_path(@user), class: "btn btn-outline-success rounded-pill" do %>
-            <i class="fas fa-user-edit"></i>ユーザー情報変更
-          <% end %>
-        </div>
-      <% end %>
     </div>
 
     <div class="col-md-6 offset-sm-1">
