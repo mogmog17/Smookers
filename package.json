@@ -10,7 +10,10 @@
     "bootstrap": "4.5",
     "jquery": "^3.6.1",
     "popper.js": "^1.16.1",
+    "skipper-slider": "^1.2.1",
     "turbolinks": "^5.2.0",
+    "velocity": "^0.7.3",
+    "velocity.js": "^0.3.4",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
   },

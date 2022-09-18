@@ -7,11 +7,14 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all' %>
-    <%= stylesheet_link_tag 'top_btn', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application' %>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/skipper-slider@1.2.1/dist/skippr.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skipper-slider@1.2.1/dist/skippr.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-raty-js@2.8.0/lib/jquery.raty.min.js"></script>
   </head>
-
   <body style="display: flex;flex-direction: column;min-height: 100vh;">
     <%= render "layouts/header" %>
     <%= flash[:notice] %>
