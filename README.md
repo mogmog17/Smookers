@@ -21,8 +21,8 @@
 
 ## 設計書
 - ER図
-- テーブル定義書
-- 詳細設計 
+- テーブル定義書 (https://docs.google.com/spreadsheets/d/1w4YuDTSJZVkEYrnoNBlOekoOsSAy10ujzj1yBDuHvhQ/edit?usp=sharing)
+- 詳細設計 (https://docs.google.com/spreadsheets/d/1vYlHx_Lgi4MtrBVjMzPbN6nxbncoDUs3twLwZhS-byM/edit?usp=sharing)
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -32,6 +32,7 @@
 - IDE：Cloud9
 
 ## 使用素材
-- 画像素材 https://stock.adobe.com/jp/
-- ロゴ素材 https://www.canva.com/
-- Google API https://mapsplatform.google.com/?hl=ja&utm_source=google&utm_medium=cpc&utm_campaign=FY18-Q2-global-demandgen-paidsearchonnetworkhouseads-cs-maps_contactsal_saf&utm_content=text-ad-none-none-DEV_c-CRE_320617583952-ADGP_Hybrid+%7C+AW+SEM+%7C+BKWS+~+Google+Maps+Platform+EXA-KWID_43700039913979220-kwd-436368166750-userloc_1009311&utm_term=KW_google+maps+platform-ST_google+maps+platform&gclid=CjwKCAjwiMj2BRBFEiwAYfTbCsortFkcJrltrpBIAUf5uPSx_oJocfdSQ3PYfHrgbn-bQoBnWiqw1hoCPCEQAvD_BwE
+- Font Awesome
+- 画像素材 (https://stock.adobe.com/jp/)
+- ロゴ素材 (https://www.canva.com/)
+- Google Maps Platform APIキー (https://mapsplatform.google.com/?hl=ja&utm_source=google&utm_medium=cpc&utm_campaign=FY18-Q2-global-demandgen-paidsearchonnetworkhouseads-cs-maps_contactsal_saf&utm_content=text-ad-none-none-DEV_c-CRE_320617583952-ADGP_Hybrid+%7C+AW+SEM+%7C+BKWS+~+Google+Maps+Platform+EXA-KWID_43700039913979220-kwd-436368166750-userloc_1009311&utm_term=KW_google+maps+platform-ST_google+maps+platform&gclid=CjwKCAjwiMj2BRBFEiwAYfTbCsortFkcJrltrpBIAUf5uPSx_oJocfdSQ3PYfHrgbn-bQoBnWiqw1hoCPCEQAvD_BwE)
