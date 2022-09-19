@@ -1,6 +1,12 @@
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light row" style="background-color: #f0f8ff;">
-    <div class="ml-5">
+<!-- ハンバーガーメニューアイコン -->
+
+<div class="d-block d-md-none hum-icon">
+  <i class="fas fa-bars fa-2x"></i>
+</div>
+
+<header style="background-color: #f0f8ff;">
+  <div class="container">
+    <div class="text-center m-2">
       <% if admin_signed_in? %>
         <%= link_to image_tag("logo.png"), admin_users_path %>
       <% else %>
@@ -8,97 +14,205 @@
       <% end %>
     </div>
 
-  <% if user_signed_in? %>
+    <!-- パソコンでの画面表示 -->
 
-    <!--ユーザーがログインしている時 -->
+    <div class="d-none d-md-block">
+      <% if user_signed_in? %>
 
-    <ul class="navbar-nav ml-auto mr-5">
-      <li>
-        <%= link_to user_path(current_user), class: "nav-link text-dark" do %>
-          <i class="fas fa-user-cog"></i>マイページ
-        <% end %>
-      </li>
-      <li>
-        <%= link_to new_post_path, class: "nav-link text-dark" do %>
-          <i class="fas fa-pencil-alt"></i>新規投稿
-        <% end %>
-      </li>
-      <li>
-        <%= link_to users_path, class: "nav-link text-dark" do %>
-          <i class="fas fa-users"></i>ユーザー一覧
-        <% end %>
-      </li>
-      <li>
-        <%= link_to posts_path, class: "nav-link text-dark" do %>
-          <i class="fas fa-file-alt"></i>投稿一覧
-        <% end %>
-      </li>
-      <li>
-        <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-dark" do %>
-          <i class="fas fa-sign-out-alt"></i>ログアウト
-        <% end %>
-      </li>
-    </ul>
-  </nav>
+        <!-- ユーザーがログインしている時 -->
 
-  <div class="row" style="background-color: #f0f8ff;">
-    <div class="col mb-1 d-flex justify-content-between">
-      <div class="col"></div>
-      <div class="col d-flex justify-content-center ml-2">
-        <%= link_to spots_path, class: "nav-link" do %>
-          <h3><i class="fas fa-search-location"></i>地図から探す</h3>
+        <div class="text-center">
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <%= link_to user_path(current_user), class: "nav-link text-dark" do %>
+                <i class="fas fa-user-cog"></i>マイページ
+              <% end %>
+            </li>
+            <li class="list-inline-item">
+              <%= link_to new_post_path, class: "nav-link text-dark" do %>
+                <i class="fas fa-pencil-alt"></i>新規投稿
+              <% end %>
+            </li>
+            <li class="list-inline-item">
+              <%= link_to users_path, class: "nav-link text-dark" do %>
+                <i class="fas fa-users"></i>ユーザー一覧
+              <% end %>
+            </li>
+            <li class="list-inline-item">
+              <%= link_to posts_path, class: "nav-link text-dark" do %>
+                <i class="fas fa-file-alt"></i>投稿一覧
+              <% end %>
+            </li>
+            <li class="list-inline-item">
+              <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-dark" do %>
+                <i class="fas fa-sign-out-alt"></i>ログアウト
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      <% elsif admin_signed_in? %>
+
+        <!--管理者がログインしている時-->
+
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <%= link_to admin_users_path, class: "nav-link text-dark" do %>
+              <i class="fas fa-users"></i>ユーザー一覧
+            <% end %>
+          </li>
+          <li class="list-inline-item">
+            <%= link_to admin_posts_path, class: "nav-link text-dark" do %>
+              <i class="fas fa-file-alt"></i>投稿一覧
+            <% end %>
+          </li>
+          <li class="list-inline-item">
+            <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link text-dark" do %>
+              <i class="fas fa-sign-out-alt"></i>ログアウト
+            <% end %>
+          </li>
+        </ul>
+      <% else %>
+
+        <!--ログインしていない時-->
+
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <%= link_to posts_path, class: "nav-link text-dark" do %>
+              <i class="fas fa-file-alt"></i>投稿一覧
+            <% end %>
+          </li>
+          <li class="list-inline-item">
+            <%= link_to new_user_registration_path, class: "nav-link text-dark" do %>
+              <i class="fas fa-user-plus"></i>新規登録
+            <% end %>
+          </li>
+          <li class="list-inline-item">
+            <%= link_to new_user_session_path, class: "nav-link text-dark" do %>
+              <i class="fas fa-user"></i>ログイン
+            <% end %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+
+    <% if user_signed_in? %>
+      <div class="row mb-2">
+        <div class="col-md-3 spots_search text-center">
+          <%= link_to spots_path do %>
+            <h5><i class="fas fa-search-location"></i>地図から探す</h5>
+          <% end %>
+        </div>
+
+        <div class="col-md-9 search-box text-center">
+          <%= render "public/searches/search" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</header>
+
+<!-- スマートフォンでの画面表示 -->
+<div class="d-none d-md-none vw-100 vh-100 hum-menu">
+  <div class="w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
+      <div class="text-center">
+        <% if admin_signed_in? %>
+          <%= link_to image_tag("logo.png"), admin_users_path %>
+        <% else %>
+          <%= link_to image_tag("logo.png"), root_path %>
         <% end %>
       </div>
-      <div class="col d-flex justify-content-end mt-3 pr-5">
-        <%= render "public/searches/search" %>
-      </div>
+
+      <% if user_signed_in? %>
+
+        <!-- ユーザーがログインしている時 -->
+
+        <div class="text-center mt-3">
+          <ul class="list-unstyled">
+            <li>
+              <%= link_to user_path(current_user), class: "nav-link text-dark" do %>
+                <i class="fas fa-user-cog"></i>マイページ
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_post_path, class: "nav-link text-dark" do %>
+                <i class="fas fa-pencil-alt"></i>新規投稿
+              <% end %>
+            </li>
+            <li>
+              <%= link_to users_path, class: "nav-link text-dark" do %>
+                <i class="fas fa-users"></i>ユーザー一覧
+              <% end %>
+            </li>
+            <li>
+              <%= link_to posts_path, class: "nav-link text-dark" do %>
+                <i class="fas fa-file-alt"></i>投稿一覧
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-dark" do %>
+                <i class="fas fa-sign-out-alt"></i>ログアウト
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      <% elsif admin_signed_in? %>
+        <!--管理者がログインしている時-->
+        <ul class="list-unstyled">
+          <li>
+          <%= link_to admin_users_path, class: "nav-link text-dark" do %>
+            <i class="fas fa-users"></i>ユーザー一覧
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_posts_path, class: "nav-link text-dark" do %>
+            <i class="fas fa-file-alt"></i>投稿一覧
+          <% end %>
+        </li>
+        <li>
+            <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link text-dark" do %>
+              <i class="fas fa-sign-out-alt"></i>ログアウト
+            <% end %>
+          </li>
+        </ul>
+      <% else %>
+
+        <!--ログインしていない時-->
+
+        <ul class="list-unstyled">
+          <li>
+            <%= link_to posts_path, class: "nav-link text-dark" do %>
+              <i class="fas fa-file-alt"></i>投稿一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_user_registration_path, class: "nav-link text-dark" do %>
+              <i class="fas fa-user-plus"></i>新規登録
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_user_session_path, class: "nav-link text-dark" do %>
+              <i class="fas fa-user"></i>ログイン
+            <% end %>
+          </li>
+        </ul>
+      <% end %>
+
+      <!-- ログインしている時の検索フォーム -->
+
+      <% if user_signed_in? %>
+        <div class="row mb-2">
+          <div class="col-md-3 spots_search text-center">
+            <%= link_to spots_path do %>
+              <h5><i class="fas fa-search-location"></i>地図から探す</h5>
+            <% end %>
+          </div>
+
+          <div class="col-md-9 search-box text-center">
+            <%= render "public/searches/search" %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
-
-  <% elsif admin_signed_in? %>
-
-    <!-- 管理者がログインしている時 -->
-
-    <ul class="navbar-nav ml-auto mr-5">
-      <li>
-        <%= link_to admin_users_path, class: "nav-link text-dark" do %>
-          <i class="fas fa-users"></i>ユーザー一覧
-        <% end %>
-      </li>
-      <li>
-        <%= link_to admin_posts_path, class: "nav-link text-dark" do %>
-          <i class="fas fa-file-alt"></i>投稿一覧
-        <% end %>
-      </li>
-      <li>
-        <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link text-dark" do %>
-          <i class="fas fa-sign-out-alt"></i>ログアウト
-        <% end %>
-      </li>
-    </ul>
-  </nav>
-
-  <% else %>
-
-    <!-- ログインしていない時 -->
-
-    <ul class="navbar-nav ml-auto mr-5">
-      <li>
-        <%= link_to posts_path, class: "nav-link text-dark" do %>
-          <i class="fas fa-file-alt"></i>投稿一覧
-        <% end %>
-      </li>
-      <li>
-        <%= link_to new_user_registration_path, class: "nav-link text-dark" do %>
-          <i class="fas fa-user-plus"></i>新規登録
-        <% end %>
-      </li>
-      <li>
-        <%= link_to new_user_session_path, class: "nav-link text-dark" do %>
-          <i class="fas fa-user"></i>ログイン
-        <% end %>
-      </li>
-    </ul>
-  </nav>
-  <% end %>
-</header>
+</div>

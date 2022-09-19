@@ -35,4 +35,12 @@ $(function() {
     }, 500);
     event.preventDefault();
   });
+
+  $('.hum-icon').click(function () {
+    $('.hum-menu').toggleClass('d-none');
+  })
+
+  $('.hum-menu').click(function () {
+    $('.hum-menu').toggleClass('d-none');
+  })
 });
