@@ -38,9 +38,13 @@
 
 .heading {
  position: absolute;
- font-size: 1000px;
- font-family: dangrek;
  z-index: 8888;
+}
+
+.heading h1 {
+ font-size: 100px;
+ font-family: 'Hachi Maru Pop', cursive;
+ color: red;
 }
 
 .skippr-arrow {
