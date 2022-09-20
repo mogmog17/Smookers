@@ -26,7 +26,7 @@
         </tbody>
       </table>
       <div class="row mt-4 mb-4">
-        <%= link_to "ユーザーを削除する", @post, method: :delete, data: { confirm: "ユーザーを削除してよろしいですか？" }, class: "btn btn-outline-danger rounded-pill" %>
+        <%= link_to "ユーザーを削除する", admin_user_path(@user), method: :delete, data: { confirm: "ユーザーを削除してよろしいですか？" }, class: "btn btn-outline-danger rounded-pill" %>
       </div>
     </div>
 

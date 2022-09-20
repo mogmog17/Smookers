@@ -3,7 +3,7 @@ class Public::PostsController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
 
   def index
-    @posts = Post.page(params[:page])
+    @posts = Post.page(params[:page]).per(10)
   end
 
   def new
