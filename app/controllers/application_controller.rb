@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_request_variant
 
   # ログイン後のリダイレクト先
 
@@ -19,6 +20,18 @@ class ApplicationController < ActionController::Base
     else
       root_path
     end
+  end
+
+  private
+
+  def set_request_variant
+    if from_smartphone?
+      request.variant = :smartphone
+    end
+  end
+
+  def from_smartphone?
+    request.from_android? || request.from_iphone? || request.from_ipod? || request.from_windows_phone?
   end
 
   protected

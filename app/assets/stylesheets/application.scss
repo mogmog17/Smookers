@@ -16,9 +16,9 @@
 
 // @import "skippr";
 
-// body {
-//  background-image: image-url("logo.png");
-// }
+body {
+  background-image: image-url("hoge.jpg");
+}
 
 .image1 {
  background-image: image-url('top1.png');
@@ -45,7 +45,8 @@
  font-size: 100px;
  font-family: 'Hachi Maru Pop', cursive;
  font-weight: 900;
- color: #0000cd;
+ text-shadow: 3px 3px 0px #000;
+ color: #3366ff;
 }
 
 .skippr-arrow {

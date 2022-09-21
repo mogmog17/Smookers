@@ -59,15 +59,13 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
-
 gem 'kaminari','~> 1.2.1'
-
 gem 'jquery-rails'
-
 gem "gmaps4rails"
 gem "geocoder"
 gem "gon"
 gem "dotenv-rails"
+gem 'rack-user_agent'
 
 group :production do
   gem 'mysql2'
