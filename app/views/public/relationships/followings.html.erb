@@ -1,3 +1,4 @@
+<% if @users.present? %>
 <div class="container">
   <div class="row">
     <h2 class="mt-4 mb-4">
@@ -7,3 +8,12 @@
     <%= render "follow_list", users: @users %>
   </div>
 </div>
+<% else %>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="text-center mt-5">フォローしたユーザーはいません</h4>
+      </div>
+    </div>
+  </div>
+<% end %>

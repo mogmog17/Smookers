@@ -4,34 +4,7 @@
       <i class="fas fa-users"></i>
       ユーザー一覧
     </h2>
-    <table class="table table-hover table-inverse">
-      <thead>
-        <tr class="table-warning">
-          <th>プロフィール画像</th>
-          <th>ユーザーネーム</th>
-          <th>フォロー数</th>
-          <th>フォロワー数</th>
-        </tr>
-      </thead>
-      <% @users.each do |user| %>
-      <tbody>
-        <tr>
-          <td>
-            <%= link_to(user) do %>
-              <%= image_tag user.get_profile_image(50, 50), class: "rounded-circle" %>
-            <% end %>
-          </td>
-          <td>
-            <%= link_to(user) do %>
-              <h5><%= user.username %></h5>
-            <% end %>
-          </td>
-          <td><%= user.followings.count %></td>
-          <td><%= user.followers.count %></td>
-        </tr>
-      </tbody>
-      <% end %>
-    </table>
+    <%= render "users", users: @users %>
     <div class="d-flex justify-content-center"><%= paginate @users %></div>
   </div>
 </div>
