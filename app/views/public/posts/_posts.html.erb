@@ -1,4 +1,6 @@
-<table class="table table-hover table-inverse">
+<!-- パソコンの表示 -->
+
+<table class="table table-hover table-inverse d-none d-xl-table">
   <thead>
     <tr class="table-warning">
       <th>画像</th>
@@ -34,6 +36,25 @@
       <% else %>
         <td>♡<%= f.favorites.count %></td>
       <% end %>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+
+<!-- スマートフォンの表示 -->
+
+<table class="table table-hover table-inverse d-md-none">
+  <thead>
+    <tr class="table-warning">
+      <th>画像</th>
+      <th>喫煙スポット</th>
+    </tr>
+  </thead>
+  <% posts.each do |f| %>
+  <tbody>
+    <tr>
+      <td><%= image_tag f.get_spot_image(100, 100) %></td>
+      <td><%= link_to f.title, f %></td>
     </tr>
   </tbody>
   <% end %>
