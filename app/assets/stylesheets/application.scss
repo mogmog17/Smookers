@@ -69,3 +69,22 @@
  background-color: #f0f8ff;
  z-index: 88888;
 }
+
+@media (max-width: 480px) {
+ .heading h1 {
+  font-size: 50px;
+  text-align: center;
+ }
+
+ .username {
+  max-width: 100%!important;
+ }
+
+ .email {
+  max-width: 100%!important;
+ }
+
+ .password {
+  max-width: 100%!important;
+ }
+}
