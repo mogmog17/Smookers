@@ -20,7 +20,7 @@
 - 他のユーザーが利用しているおすすめ喫煙スポットをしりたいとき
 
 ## 設計書
-- ER図
+- ER図 (https://drive.google.com/file/d/1k1EM0TBKIcuP1ikob6CNDbhwE5FjFmD1/view?usp=sharing)
 - テーブル定義書 (https://docs.google.com/spreadsheets/d/1w4YuDTSJZVkEYrnoNBlOekoOsSAy10ujzj1yBDuHvhQ/edit?usp=sharing)
 - 詳細設計 (https://docs.google.com/spreadsheets/d/1vYlHx_Lgi4MtrBVjMzPbN6nxbncoDUs3twLwZhS-byM/edit?usp=sharing)
 
