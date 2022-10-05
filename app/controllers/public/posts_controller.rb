@@ -1,6 +1,7 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :ensure_correct_user, only: [:edit, :update]
+  before_action :set_post, only: [:show, :edit, :update]
 
   def index
     @posts = Post.page(params[:page]).per(10)
@@ -22,12 +23,10 @@ class Public::PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
     @post_comment = PostComment.new
   end
 
   def edit
-    @post = Post.find(params[:id])
     if @post.user == current_user
       render :edit
     else
@@ -36,7 +35,6 @@ class Public::PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
     @post.update(post_params)
     flash[:notice] = "投稿内容を変更しました"
     redirect_to post_path(@post.id)
@@ -52,6 +50,10 @@ class Public::PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body, :spot_image, :star, :address)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 
   def ensure_correct_user
